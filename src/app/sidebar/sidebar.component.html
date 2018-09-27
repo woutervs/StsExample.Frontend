@@ -1,0 +1,21 @@
+<nav>
+    <div class="header">
+        <h3>STS Example</h3>
+        <ul class="list-unstyled">
+            <li>
+                <span *ngIf="isAuthenticated | async">
+                    <span>{{username}} </span><i class="fas fa-sign-out-alt text-align-middle" title="Logout" (click)="logOut()"></i>
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="list-unstyled components">
+        <li routerLinkActive="active">
+            <a routerLink="/landing">Landing page</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="/protectedpage">I am protected</a>
+        </li>
+    </ul>
+</nav>

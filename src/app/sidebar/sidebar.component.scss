@@ -1,0 +1,70 @@
+@import "~src/sass/variables";
+
+:host {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #ec9079;
+    color: $prefered-white;
+    transition: all 0.3s;
+}
+
+.header {
+  padding: 20px;
+  background: #B8614B;
+}
+
+.components {
+  padding: 20px 0;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+i[title="Logout"] {
+    cursor: pointer;
+}
+
+ul {
+    @mixin active {
+        color: $prefered-white;
+        background: #eb7c60;
+    }
+
+    p {
+        color: $prefered-white;
+        padding: 10px;
+    }
+
+    li {
+        a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+
+            &:hover {
+                color: #eb7c60;
+                background: $prefered-white;
+            }
+            &[aria-expanded="true"] {
+                @include active;
+            }
+        }
+        &.active > a {
+            @include active;
+        }
+    }
+
+    ul {
+        a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+        }
+    }
+}
