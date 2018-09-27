@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
     this.authorizationService.logout();
   }
 
-  public get isAuthenticated():Promise<boolean> {
+  public get isAuthenticated():Observable<boolean> {
     return this.authorizationService.verifyIsAuthenticated;
   }
 
