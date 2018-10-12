@@ -6,10 +6,11 @@
     <div class="row">
       <div class="col">
         <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="mail">Email address</label>
-          <input type="email" class="form-control" id="mail" placeholder="Enter your e-mail address" required [(ngModel)]="username" name="username" #fusername="ngModel">
-          <div [hidden]="fusername.valid || (fusername.pristine && !fusername.touched)" class="alert alert-danger">
+          <div class="form-group">
+            <label for="mail">Email address</label>
+            <input type="email" class="form-control" id="mail" placeholder="Enter your e-mail address" required
+              [(ngModel)]="username" name="username" #fusername="ngModel">
+            <div [hidden]="fusername.valid || (fusername.pristine && !fusername.touched)" class="alert alert-danger">
               <div *ngIf="fusername.errors?.required">
                 Email address is required.
               </div>
@@ -17,27 +18,29 @@
                 Not a valid e-mail address.
               </div>
             </div>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Enter your password" required minlength="4" [(ngModel)]="password" name="password" #fpassword="ngModel">
-        </div>
-        <div [hidden]="fpassword.valid || (fpassword.pristine && !fpassword.touched)" class="alert alert-danger">
-          <div *ngIf="fpassword.errors?.required">
-            Password is required.
           </div>
-          <div *ngIf="fpassword.errors?.minlength">
-            Password needs to be at least 4 characters.
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password" required
+              minlength="4" [(ngModel)]="password" name="password" #fpassword="ngModel">
           </div>
-        </div>
-        <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Login</button>
-      </form>
-      <span *ngIf="message" [ngClass]="loginSuccess ? 'text-success' : 'text-danger'">
-        {{message}}
-      </span>
+          <div [hidden]="fpassword.valid || (fpassword.pristine && !fpassword.touched)" class="alert alert-danger">
+            <div *ngIf="fpassword.errors?.required">
+              Password is required.
+            </div>
+            <div *ngIf="fpassword.errors?.minlength">
+              Password needs to be at least 4 characters.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Login</button>
+        </form>
+        <span *ngIf="message" [ngClass]="loginSuccess ? 'text-success' : 'text-danger'">
+          {{message}}
+        </span>
       </div>
       <div class="col">
-        Social
+        <div class="row">Social</div>
+        <a href="{{socialUrl('discord')}}"><i class="fab fa-discord fa-7x"></i></a>
       </div>
     </div>
   </div>

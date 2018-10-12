@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { environment } from '../environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 import { ProtectedpageComponent } from './protectedpage/protectedpage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';

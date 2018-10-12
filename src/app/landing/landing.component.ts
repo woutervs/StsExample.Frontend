@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorizationService } from "../authorization.service";
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-landing',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private authorizationService: AuthorizationService, private router: Router) { }
+  constructor(private authorizationService: AuthorizationService, private router: Router, private location: Location) { }
 
   public username: string = "";
   public password: string = "";
@@ -38,6 +40,11 @@ export class LandingComponent implements OnInit {
       }
     );
   }
+
+  socialUrl(provider: string): string {
+    var returnUrl = `${(this.location as any)._platformStrategy._platformLocation.location.origin}${this.authorizationService.redirectUrl || this.router.url}`;
+    return `${environment.authenticationApi}/api/external/${provider}?returnUrl=${returnUrl}`;
+  };
 
   get diagnostic() { return JSON.stringify({ username: this.username, password: this.password }); }
 }
