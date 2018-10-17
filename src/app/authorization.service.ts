@@ -47,7 +47,7 @@ export class AuthorizationService {
         .set('grant_type', 'refresh_token')
         .set('refresh_token', this.cookieService.get('refreshtoken'))
         .set('client_id', 'angular'), {
-          headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+          headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }), withCredentials: true
         }).pipe(map((data: Token) => {
           this.processToken(data);
           this._reauthenticating = false;
@@ -99,7 +99,7 @@ export class AuthorizationService {
       .set('username', username)
       .set('password', password)
       .set('client_id', environment.apiClientId).toString()
-      , { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }) })
+      , { headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }), withCredentials: true })
       .pipe(map((data: Token) => {
         this.processToken(data);
         return true;

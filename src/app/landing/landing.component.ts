@@ -43,7 +43,7 @@ export class LandingComponent implements OnInit {
 
   socialUrl(provider: string): string {
     var returnUrl = `${(this.location as any)._platformStrategy._platformLocation.location.origin}${this.authorizationService.redirectUrl || this.router.url}`;
-    return `${environment.authenticationApi}/api/external/${provider}?returnUrl=${returnUrl}`;
+    return `${environment.authenticationApi}/api/external/${provider}?returnUrl=${returnUrl}&client=angular`;
   };
 
   get diagnostic() { return JSON.stringify({ username: this.username, password: this.password }); }
